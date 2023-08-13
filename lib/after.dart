@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+//import 'package:location/location.dart';
+//import 'package:temp/location_input.dart';
 
 class After extends StatelessWidget {
   After({Key? key}) : super(key: key);
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +56,12 @@ class After extends StatelessWidget {
           ],
           currentIndex: _selectedIndex,
           // selectedItemColor: Colors.amber[800],
-          onTap: (int index) {},
+          onTap: (int currentindex) {
+            // if (currentindex == 2) {
+            //   Navigator.push(context,
+            //       MaterialPageRoute(builder: (context) => LocationInput()));
+            // }
+          },
         ),
       ),
 
@@ -123,7 +130,7 @@ class After extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 70, 0, 0),
                 child: TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Methods",
                       style: TextStyle(color: Colors.green, fontSize: 25),
                     )),
@@ -135,3 +142,34 @@ class After extends StatelessWidget {
     );
   }
 }
+
+// class LocationInput extends StatefulWidget {
+//   @override
+//   State<LocationInput> createState() {
+//     return LocationInputState();
+//   }
+// }
+
+// class LocationInputState extends State<LocationInput> {
+//   Widget build(context) {
+//     return Column(
+//       children: [
+//         Container(
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//             children: [
+//               TextButton.icon(
+//                   onPressed: () {},
+//                   icon: const Icon(Icons.location_on),
+//                   label: const Text('Get Current Location')),
+//               TextButton.icon(
+//                   onPressed: () {},
+//                   icon: const Icon(Icons.map),
+//                   label: const Text("Select on map"))
+//             ],
+//           ),
+//         )
+//       ],
+//     );
+//   }
+// }

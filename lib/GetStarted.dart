@@ -87,50 +87,103 @@ class _SignupScreenState extends State<GetStarted> {
   Widget build(context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 150,
-          ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-            child: Text(
-              'Signup',
-              style: TextStyle(
-                  fontSize: 50, fontWeight: FontWeight.bold, letterSpacing: 4),
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          const Padding(
-            padding: EdgeInsets.fromLTRB(29, 0, 0, 0),
-            child: Text('Hello,Enter your email to continue'),
-          ),
-          Container(
-            child: Column(children: [
-              TextField(
-                controller: _usernameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email',
-                  hintText: 'Email',
-                ),
-                autofocus: false,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('asset/image/login.jpeg'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: ListView(
+            children: [
+              const SizedBox(
+                height: 150,
               ),
-              TextField(
-                controller: _passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Passwordl',
-                  hintText: 'Password',
+              const Padding(
+                padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                child: Text(
+                  'Signup',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                    //letterSpacing: 3
+                  ),
                 ),
-                autofocus: false,
               ),
-              TextButton(onPressed: _signUp, child: const Text('Signup'))
-            ]),
-          )
-        ],
+              const SizedBox(
+                height: 15,
+              ),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(14, 0, 0, 0),
+                child: Text(
+                  'Hello,Enter your email to continue',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Container(
+                child: Column(children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                    child: TextField(
+                      style: TextStyle(fontSize: 20),
+                      controller: _usernameController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Email',
+                        hintText: 'Email',
+                      ),
+                      autofocus: true,
+                      minLines: 2,
+                      maxLines: 4,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                    child: TextField(
+                      style: TextStyle(fontSize: 20),
+                      controller: _passwordController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Passwordl',
+                        hintText: 'Password',
+                      ),
+                      autofocus: false,
+                      minLines: 2,
+                      maxLines: 4,
+                    ),
+                  ),
+                ]),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 5, 40, 0),
+                child: ElevatedButton(
+                    onPressed: _signUp,
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      side: const BorderSide(color: Colors.black),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 13, horizontal: 10),
+                      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
+                      'Signup',
+                      style: TextStyle(color: Colors.black, fontSize: 30),
+                    )),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

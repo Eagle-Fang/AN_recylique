@@ -9,63 +9,65 @@ class Intropage extends StatelessWidget {
   @override
   Widget build(context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(children: [
-        const SizedBox(
-          height: 200,
-        ),
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "Recyclic",
-              style: TextStyle(fontSize: 30, letterSpacing: 4),
-            ),
-            // const SizedBox(
-            //   height: 300,
-            // ),
-          ],
-        ),
-        const SizedBox(
-          height: 500,
-        ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => GetStarted()));
-          },
-          style: ElevatedButton.styleFrom(
-              side: const BorderSide(color: Colors.black),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 13, horizontal: 120),
-              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40),
-              ),
-              elevation: 0),
-          child: const Text(
-            "Get Started",
-            style: TextStyle(color: Colors.black),
+      //backgroundColor: Colors.white,
+      body: Center(
+        child: Column(children: [
+          const SizedBox(
+            height: 200,
           ),
-        ),
-        const SizedBox(
-          height: 5,
-        ),
-        Row(
-          children: [
-            const SizedBox(
-              width: 120,
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Recyclic",
+                style: TextStyle(fontSize: 30, letterSpacing: 4),
+              ),
+              // const SizedBox(
+              //   height: 300,
+              // ),
+            ],
+          ),
+          const SizedBox(
+            height: 500,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => GetStarted()));
+            },
+            style: ElevatedButton.styleFrom(
+                side: const BorderSide(color: Colors.black),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 13, horizontal: 120),
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                elevation: 0),
+            child: const Text(
+              "Get Started",
+              style: TextStyle(color: Colors.black),
             ),
-            const Text("ALready Have an Account?"),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Login()));
-                },
-                child: const Text("Login"))
-          ],
-        )
-      ]),
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            children: [
+              const SizedBox(
+                width: 120,
+              ),
+              const Text("ALready Have an Account?"),
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Login()));
+                  },
+                  child: const Text("Login"))
+            ],
+          )
+        ]),
+      ),
     );
   }
 }

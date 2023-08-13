@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
@@ -76,55 +78,105 @@ class _LoginScreenState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          const SizedBox(
-            height: 300,
-          ),
-          Container(
-            width: 300,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(60, 0, 0, 20),
-                  child: TextField(
-                    controller: _usernameController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Email',
-                      hintText: 'Email',
-                    ),
-                    autofocus: false,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(60, 0, 0, 10),
-                  child: TextField(
-                    controller: _passwordController,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Password',
-                      hintText: 'Password',
-                    ),
-                    autofocus: false,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: onPressed,
-                  child: const Text('Login'),
-                ),
-                if (_errorMessage.isNotEmpty)
+      body: Container(
+        // width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('asset/image/login.jpeg'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: ListView(
+            children: [
+              const SizedBox(
+                height: 150,
+              ),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                     child: Text(
-                      _errorMessage,
-                      style: TextStyle(color: Colors.red),
+                      'Login',
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
                   ),
-              ],
-            ),
+                ],
+              ),
+              const Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(20.0, 10, 0, 0),
+                    child: Text(
+                      'Hey There Welcome Back!',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 60, 20, 40),
+                child: TextField(
+                  style: TextStyle(fontSize: 20),
+                  controller: _usernameController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Email',
+                    hintText: 'Enter Your Email ',
+                  ),
+                  autofocus: true,
+                  minLines: 2,
+                  maxLines: 4,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 40, 20, 40),
+                child: TextField(
+                  style: TextStyle(fontSize: 20),
+                  controller: _passwordController,
+                  decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Password',
+                    hintText: 'Enter Your Password',
+                  ),
+                  autofocus: true,
+                  minLines: 2,
+                  maxLines: 4,
+                ),
+              ),
+              const SizedBox(
+                height: 40,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(40, 5, 40, 0),
+                child: ElevatedButton(
+                  onPressed: onPressed,
+                  style: ElevatedButton.styleFrom(
+                    side: const BorderSide(color: Colors.black),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 13, horizontal: 10),
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: const Text(
+                    'Login',
+                    style: TextStyle(fontSize: 30, color: Colors.black),
+                  ),
+                ),
+              ),
+              if (_errorMessage.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    _errorMessage,
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
